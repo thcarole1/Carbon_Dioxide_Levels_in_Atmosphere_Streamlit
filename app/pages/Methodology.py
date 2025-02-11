@@ -15,12 +15,19 @@ st.markdown(
     Times series forecasting<br>
 
     <h2> Data analysis </h2>
-
+    Let's look at the data at hand: <br>
     """,
     unsafe_allow_html=True
 )
 
 st.image("data/co2_levels_raw.png", caption="co2 levels dataset", output_format='PNG')
+
+st.markdown(
+"""
+    Let's look at some statistic relevant info: <br>
+    """,
+    unsafe_allow_html=True
+)
 
 st.image("data/co2_levels_visuals.png", caption="co2 levels statistics", output_format='PNG')
 
