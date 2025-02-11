@@ -12,7 +12,7 @@ st.markdown(
     <h2> Specific issues and objectives </h2>
 
     <h3> Nature of the problem </h3>
-    Times series forecasting<br>
+    We want to forecast the CO2 levels in the atmosphere based on a times series dataset.<br>
 
     <h2> Data analysis </h2>
     Let's look at the data at hand: <br>
@@ -31,34 +31,9 @@ st.markdown(
 
 st.image("data/co2_levels_visuals.png", caption="co2 levels statistics", output_format='PNG')
 
-
-
 st.markdown(
 """
-    <h1>CO2 levels prediction </h1>
-    <h2> Specific issues and objectives </h2>
-
-    <h3> Nature of the problem </h3>
-    Times series forecasting<br>
-
-    <h2> Data analysis </h2>
-
-    <h2> Model Comparison </h2>
-    <h2> Cross validation of ARIMA model (CV = 5)</h2>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown(
-"""
-    <h1>CO2 levels prediction </h1>
-    <h2> Specific issues and objectives </h2>
-
-    <h3> Nature of the problem </h3>
-    Times series forecasting<br>
-
-    <h2> Data analysis </h2>
-
+    After some data preprocessing, we will comparer the performance of an **ARIMA model** and a **LSTM model**.
     <h2> Model Comparison </h2>
     <h2> Cross validation of ARIMA model (CV = 5)</h2>
     """,
@@ -86,7 +61,7 @@ st.image("data/cross_lstm_5.png", caption="Cross validation on LSTM model (CV :5
 st.markdown(
 """
     <h2> Cross validation results</h2>
-    Let's compute different metrics for each model we want to train AFTER CROSS VALIDATION (cv = 5) : <br><br>
+    Let's compute different metrics for each model AFTER CROSS VALIDATION (cv=5) : <br><br>
     """,
     unsafe_allow_html=True
 )
@@ -96,8 +71,10 @@ st.dataframe(data = compare_metrics, hide_index=True)
 
 st.markdown(
 """
-    The LSTM model has the lowest mean MAPE, as well as for the other metrics.<br><br>
+    The **LSTM model** has the **lowest mean MAPE**, as well as for the other metrics.<br>
     Let's use the **LSTM model** for our application.
+
+    Let's manipulate our final LSTM model in the prediction pages.
 """,
     unsafe_allow_html=True
 )

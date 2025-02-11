@@ -70,9 +70,8 @@ st.markdown(
     )
 
 st.latex(r'''
-            MAE  = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|
+         MAE  = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|
          ''')
-
 st.markdown(
     """
     • <b>Use Case</b>:
