@@ -16,6 +16,42 @@ st.markdown(
 
     <h2> Data analysis </h2>
 
+    """,
+    unsafe_allow_html=True
+)
+
+st.image("data/co2_levels_raw.png", caption="co2 levels dataset", output_format='PNG')
+
+st.image("data/co2_levels_visuals.png", caption="co2 levels statistics", output_format='PNG')
+
+
+
+st.markdown(
+"""
+    <h1>CO2 levels prediction </h1>
+    <h2> Specific issues and objectives </h2>
+
+    <h3> Nature of the problem </h3>
+    Times series forecasting<br>
+
+    <h2> Data analysis </h2>
+
+    <h2> Model Comparison </h2>
+    <h2> Cross validation of ARIMA model (CV = 5)</h2>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+"""
+    <h1>CO2 levels prediction </h1>
+    <h2> Specific issues and objectives </h2>
+
+    <h3> Nature of the problem </h3>
+    Times series forecasting<br>
+
+    <h2> Data analysis </h2>
+
     <h2> Model Comparison </h2>
     <h2> Cross validation of ARIMA model (CV = 5)</h2>
     """,
