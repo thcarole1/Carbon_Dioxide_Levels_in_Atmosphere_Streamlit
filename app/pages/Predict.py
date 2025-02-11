@@ -39,12 +39,12 @@ if predict_button:
     with open(csv_file_path, "r", encoding="utf-8") as f:
         csv_content = f.read()
 
-    # URL-encode the CSV content so it can be safely transmitted as a query parameter
-    encoded_csv = urllib.parse.quote(csv_content)
+    # # URL-encode the CSV content so it can be safely transmitted as a query parameter
+    # encoded_csv = urllib.parse.quote(csv_content)
 
     # Define the API endpoint and parameters
-    api_url = "https://co2levelsimage-scpwgaakrq-od.a.run.app/predict"
-    params = {"csv_data": encoded_csv}
+    api_url = "https://co2levelsimage-scpwgaakrq-od.a.run.app/predict_csv"
+    params = {"csv_data": csv_content}
 
     # Send the GET request
     response = requests.get(api_url, params=params)
