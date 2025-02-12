@@ -20,7 +20,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.image("data/co2_levels_raw.png", caption="co2 levels dataset", output_format='PNG')
+st.image("data/figures/co2_levels_raw.png", caption="co2 levels dataset", output_format='PNG')
 
 st.markdown(
 """
@@ -29,7 +29,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.image("data/co2_levels_visuals.png", caption="co2 levels statistics", output_format='PNG')
+st.image("data/figures/co2_levels_visuals.png", caption="co2 levels statistics", output_format='PNG')
 
 st.markdown(
 """
@@ -39,11 +39,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.image("data/cross_arima_1.png", caption="Cross validation on ARIMA model (CV :1)", output_format='PNG')
-st.image("data/cross_arima_2.png", caption="Cross validation on ARIMA model (CV :2)", output_format='PNG')
-st.image("data/cross_arima_3.png", caption="Cross validation on ARIMA model (CV :3)", output_format='PNG')
-st.image("data/cross_arima_4.png", caption="Cross validation on ARIMA model (CV :4)", output_format='PNG')
-st.image("data/cross_arima_5.png", caption="Cross validation on ARIMA model (CV :5)", output_format='PNG')
+st.image("data/figures/cross_arima_1.png", caption="Cross validation on ARIMA model (CV :1)", output_format='PNG')
+st.image("data/figures/cross_arima_2.png", caption="Cross validation on ARIMA model (CV :2)", output_format='PNG')
+st.image("data/figures/cross_arima_3.png", caption="Cross validation on ARIMA model (CV :3)", output_format='PNG')
+st.image("data/figures/cross_arima_4.png", caption="Cross validation on ARIMA model (CV :4)", output_format='PNG')
+st.image("data/figures/cross_arima_5.png", caption="Cross validation on ARIMA model (CV :5)", output_format='PNG')
 
 
 st.markdown(
@@ -52,11 +52,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.image("data/cross_lstm_1.png", caption="Cross validation on LSTM model (CV :1)", output_format='PNG')
-st.image("data/cross_lstm_2.png", caption="Cross validation on LSTM model (CV :2)", output_format='PNG')
-st.image("data/cross_lstm_3.png", caption="Cross validation on LSTM model (CV :3)", output_format='PNG')
-st.image("data/cross_lstm_4.png", caption="Cross validation on LSTM model (CV :4)", output_format='PNG')
-st.image("data/cross_lstm_5.png", caption="Cross validation on LSTM model (CV :5)", output_format='PNG')
+st.image("data/figures/cross_lstm_1.png", caption="Cross validation on LSTM model (CV :1)", output_format='PNG')
+st.image("data/figures/cross_lstm_2.png", caption="Cross validation on LSTM model (CV :2)", output_format='PNG')
+st.image("data/figures/cross_lstm_3.png", caption="Cross validation on LSTM model (CV :3)", output_format='PNG')
+st.image("data/figures/cross_lstm_4.png", caption="Cross validation on LSTM model (CV :4)", output_format='PNG')
+st.image("data/figures/cross_lstm_5.png", caption="Cross validation on LSTM model (CV :5)", output_format='PNG')
 
 st.markdown(
 """
@@ -66,8 +66,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-compare_metrics = pd.read_csv("data/metrics_df.csv", index_col=None)
-st.dataframe(data = compare_metrics, hide_index=True)
+compare_metrics = pd.read_csv("data/csv_files/metrics_df.csv", index_col=None)
+st.dataframe(data = compare_metrics)
 
 st.markdown(
 """
