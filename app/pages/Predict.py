@@ -97,17 +97,10 @@ if predict_button:
 
     # Display all the data (train, test and predictions)
     plot_final_lstm_global(train_df, "Carbon Dioxide (ppm)",
-                            y_test, "test",
-                            predictions, "predictions")
+                            y_test, "Unseen Carbon Dioxide values (ppm)",
+                            predictions, "Carbon Dioxide predictions (ppm)")
 
     # Display zoom of the data (train, test and predictions)
     plot_final_lstm_zoom(train_df, "Carbon Dioxide (ppm)",
-                            y_test, "test",
-                            predictions, "predictions")
-
-
-    st.dataframe(data = y_test.tail())
-    st.dataframe(data = predictions.tail())
-
-    test_df = pd.read_csv("data/csv_files/test_15percent.csv", index_col=None)
-    st.dataframe(data = test_df.tail())
+                            y_test, "Unseen Carbon Dioxide values (ppm)",
+                            predictions, "Carbon Dioxide predictions (ppm)")
