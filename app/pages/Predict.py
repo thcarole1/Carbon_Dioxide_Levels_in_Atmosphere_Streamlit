@@ -7,7 +7,7 @@ import zipfile
 
 
 # Import from other py files
-from display import plot_final_lstm
+from display import plot_final_lstm, plot_final_lstm_global, plot_final_lstm_zoom
 
 # Load custom CSS
 with open("app/css/styles.css") as f:
@@ -30,7 +30,6 @@ if load_button:
     st.write("We only show the first rows of our excerpt.")
     test_df = pd.read_csv("data/csv_files/test_15percent.csv", index_col=None)
     st.dataframe(data = test_df.head())
-
 
 # Get the predictions through API call
 label_predict = "Predict excerpt values"
@@ -61,8 +60,10 @@ if predict_button:
         with open("data/zip_files/API_response.zip", "wb") as file:
             file.write(response.content)
         print("ZIP file downloaded successfully!")
+        st.write("Predictions computed successfully !")
     else:
         print("Failed to download the ZIP file or incorrect response.")
+        st.write("Failed to download the ZIP file or incorrect response!")
 
     # ************************** Extract data from ZIP file ******************************
     # Open the ZIP file
@@ -75,10 +76,38 @@ if predict_button:
         zip_ref.extractall('data/zip_files/extracted_data')
     # **************************************************************************
 
-
     # Display results
+    # Retrieve train set
+    csv_file_path = "data/csv_files/train_85percent.csv"  # Update with your actual file path
+    train_df = pd.read_csv(csv_file_path, index_col=None)
+    train_df['Year_Month'] = pd.to_datetime(train_df['Year_Month'])
+    train_df= train_df.set_index('Year_Month')
+
+    # Retrieve test set
+    csv_file_path = "data/zip_files/extracted_data/y_test.csv"  # Update with your actual file path
+    y_test = pd.read_csv(csv_file_path, index_col=None)
+    y_test['Unnamed: 0'] = pd.to_datetime(y_test['Unnamed: 0'])
+    y_test= y_test.set_index('Unnamed: 0')
+
+    # Retrieve predictions
+    csv_file_path = "data/zip_files/extracted_data/predictions.csv"  # Update with your actual file path
+    predictions = pd.read_csv(csv_file_path, index_col=None)
+    predictions['Unnamed: 0'] = pd.to_datetime(predictions['Unnamed: 0'])
+    predictions= predictions.set_index('Unnamed: 0')
+
+    # Display all the data (train, test and predictions)
+    plot_final_lstm_global(train_df, "Carbon Dioxide (ppm)",
+                            y_test, "test",
+                            predictions, "predictions")
+
+    # Display zoom of the data (train, test and predictions)
+    plot_final_lstm_zoom(train_df, "Carbon Dioxide (ppm)",
+                            y_test, "test",
+                            predictions, "predictions")
 
 
-    # plot_final_lstm(train, train_label,
-    #                test, test_label,
-    #                forecast_recons, forecast_recons_label):
+    st.dataframe(data = y_test.tail())
+    st.dataframe(data = predictions.tail())
+
+    test_df = pd.read_csv("data/csv_files/test_15percent.csv", index_col=None)
+    st.dataframe(data = test_df.tail())
