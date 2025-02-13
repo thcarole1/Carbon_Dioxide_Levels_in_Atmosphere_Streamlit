@@ -5,6 +5,10 @@ import requests
 import urllib.parse
 import zipfile
 
+
+# Import from other py files
+from display import plot_final_lstm
+
 # Load custom CSS
 with open("app/css/styles.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -70,3 +74,11 @@ if predict_button:
         # Extract all files to the current directory (optional)
         zip_ref.extractall('data/zip_files/extracted_data')
     # **************************************************************************
+
+
+    # Display results
+
+
+    # plot_final_lstm(train, train_label,
+    #                test, test_label,
+    #                forecast_recons, forecast_recons_label):
